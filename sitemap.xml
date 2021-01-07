@@ -3,19 +3,36 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
-    <loc>mxdjo.github.io/blog/</loc>
-  </url>
-  
-  <url>
     <loc>mxdjo.github.io/</loc>
+    <lastmod>2021-01-07T14:15:25+00:00</lastmod>
   </url>
   
   <url>
-    <loc>mxdjo.github.io/series/</loc>
+    <loc>mxdjo.github.io/posts/sysadmin-101/install-nfs-server/</loc>
+    <lastmod>2021-01-07T14:15:25+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>mxdjo.github.io/posts/</loc>
+    <lastmod>2021-01-07T14:15:25+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>mxdjo.github.io/tags/sysadmin-101/</loc>
+    <lastmod>2021-01-07T14:15:25+00:00</lastmod>
   </url>
   
   <url>
     <loc>mxdjo.github.io/tags/</loc>
+    <lastmod>2021-01-07T14:15:25+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>mxdjo.github.io/blog/</loc>
+  </url>
+  
+  <url>
+    <loc>mxdjo.github.io/series/</loc>
   </url>
   
 </urlset>

@@ -7,9 +7,19 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>&lt;a href=&#34;https://creativecommons.org/licenses/by-nc/4.0/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;CC BY-NC 4.0&lt;/a&gt;</copyright>
+    <lastBuildDate>Thu, 07 Jan 2021 14:15:25 +0000</lastBuildDate>
     
 	<atom:link href="mxdjo.github.io/tags/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>sysadmin 101</title>
+      <link>mxdjo.github.io/tags/sysadmin-101/</link>
+      <pubDate>Thu, 07 Jan 2021 14:15:25 +0000</pubDate>
+      
+      <guid>mxdjo.github.io/tags/sysadmin-101/</guid>
+      <description></description>
+    </item>
     
   </channel>
 </rss>

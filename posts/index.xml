@@ -1,0 +1,145 @@
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+    <channel>
+        <title>Posts on echo mxdjo.xyz 😀</title>
+        <link>mxdjo.github.io/posts/</link>
+        <description>Recent content in Posts on echo mxdjo.xyz 😀</description>
+        <generator>Hugo -- gohugo.io</generator>
+        <language>en-us</language>
+        <copyright>&lt;a href=&#34;https://creativecommons.org/licenses/by-nc/4.0/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;CC BY-NC 4.0&lt;/a&gt;</copyright>
+        <lastBuildDate>Thu, 07 Jan 2021 14:15:25 +0000</lastBuildDate>
+        <atom:link href="mxdjo.github.io/posts/index.xml" rel="self" type="application/rss+xml" />
+        
+        <item>
+            <title>Install Nfs Server</title>
+            <link>mxdjo.github.io/posts/sysadmin-101/install-nfs-server/</link>
+            <pubDate>Thu, 07 Jan 2021 14:15:25 +0000</pubDate>
+            
+            <guid>mxdjo.github.io/posts/sysadmin-101/install-nfs-server/</guid>
+            <description>NFS est l&amp;rsquo;abbréviation de Network File System ie système de fichiers réseau.
+Ce système de fichiers en réseau permet de partager des données principalement entre systèmes de type UNIX mais des versions existent également pour Microsoft Windows™ et Mac.
+Nous verrons ici comment mettre en place le partage sur un réseau. Les pré-requis pour suivre ce qui sera fait ici sont:
+ deux ordinateurs au moins (pour simplifier les choses, j&amp;rsquo;utilse une machine sous CentOS7 comme serveur et une machine ubuntu 20.</description>
+            <content type="html"><![CDATA[<p>NFS est l&rsquo;abbréviation de Network File System ie système de fichiers réseau.</p>
+<p>Ce système de fichiers en réseau permet de partager des données principalement entre systèmes de type UNIX mais des versions existent également pour Microsoft Windows™ et Mac.</p>
+<p>Nous verrons ici comment mettre en place le partage sur un réseau.
+Les pré-requis  pour suivre ce qui sera fait ici sont:</p>
+<ul>
+<li>deux ordinateurs au moins (pour simplifier les choses, j&rsquo;utilse une machine sous CentOS7 comme serveur et une machine ubuntu 20.04 comme client)</li>
+<li>les droits d&rsquo;administration sur les deux machines</li>
+<li>un réseau de confiance car NFS n&rsquo;a pas de vocation à être ouvert sur Internet</li>
+<li>les adresses IP des machines ( la commande &lsquo;ip addr show&rsquo; peut aider à les trouver)</li>
+</ul>
+<ol>
+<li>Installer le paquet</li>
+</ol>
+<p>2 services sont nécessaires au fonctionnement de NFS :</p>
+<ul>
+<li>
+<p>le service network ;</p>
+</li>
+<li>
+<p>Le service rpcbind.</p>
+</li>
+</ul>
+<p>Il faut s&rsquo;assurer que ces deux services sont actifs</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">systemctl status network
+systemctl status rpcbind
+</code></pre></div><p>On peut maintenant installer le paquet nfs-utils. Ce paquet contient le serveur en espace utilisateur et le client nécessaires pour utiliser les possibilités NFS du noyau.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">yum install nfs-utils
+</code></pre></div><ol start="2">
+<li>Configure le partage
+le partage de ressources s&rsquo;effecture dans le fichier /etc/exports. A chaque ligne correspond un partage.</li>
+</ol>
+<p>la syntaxe d&rsquo;une ligne est:
+export host(options)</p>
+<p>export: le dossier à partager
+host: l&rsquo;adresse IP de la machine ou du reseau qui aura accès à la ressource
+options: il s&rsquo;agit en quelque sorte des permissions que l&rsquo;host aura sur la ressource.Par défaut c&rsquo;est une permission de lecture uniquement (ro)</p>
+<p>exemples:</p>
+<p>/var/nfsshare    192.168.0.101(rw,sync,no_root_squash,no_all_squash)
+/home/vmuser 192.168.1.0/24(rw)</p>
+<p>La deuxième ligne nous dit que les machines du réseau 192.168.1.0 ont droit de lecture et d'écriture sur le dossier /home/vmuser</p>
+<p>Pour toutes les options, vous pouvez vous reférer à la documentation de RedHat ici
+<a href="https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/7/html/storage_administration_guide/nfs-serverconfig">https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/7/html/storage_administration_guide/nfs-serverconfig</a></p>
+<p>Il faut s&rsquo;assurer que les dossiers partagés existent bel et bien
+mkdir -p /var/nfsshare
+mkdir -p /home/nfssfare</p>
+<p>S&rsquo;assurer que les services rpcbind et nfs-server sont activés
+systemctl enable &ndash;now rpcbind nfs-server</p>
+<p>(l&rsquo;option &ndash;now active le service et le redemarre)</p>
+<ol start="3">
+<li>Le firewall
+Par défaut firewalld est activé sur CentOS 7. il faut donc ajouter des règles qui permettent d&rsquo;accepter le trafic vers le service nfs</li>
+</ol>
+<p>firewall-cmd &ndash;permanent &ndash;add-service=nfs
+firewall-cmd &ndash;permanent &ndash;add-service=mountd
+firewall-cmd &ndash;permanent &ndash;add-service=rpc-bind
+firewall-cmd &ndash;reload</p>
+<p>Le programme rpc.mountd implémente la partie serveur du protocole NFS (NdT : dans certains cas, il peut s&rsquo;appeler mountd ). Quand celui-ci reçoit d&rsquo;un client une requête de type MOUNT (demande de montage), il vérifie si ce client est autorisé à faire ce montage à distance. Si le client est autorisé rpc.mountd récupère un handle de fichier pour le répertoire demandé et le retourne au client</p>
+<ol start="4">
+<li>Config client</li>
+</ol>
+<p>sur le client le paquet nfs-utils doit être aussi installé</p>
+<p>yum install nfs-utils  (Centos)</p>
+<p>apt install libnfs-utils</p>
+<p>Nous allsons voir les partages sur le serveur à partir du client NFS. La commande qui nous aidera est  <strong>showmount</strong></p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">showmount -e ADRESSE_IP_SERVEUR
+
+</code></pre></div><pre><code>Export list for 192.168.1.47:
+/home/vmuser 192.168.1.0/24
+</code></pre><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">rpcinfo -p 192.168.1.47
+</code></pre></div><p>On devrait avoir un résultat de ce genre</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"> program vers proto   port  service
+    <span style="color:#ae81ff">100000</span>    <span style="color:#ae81ff">4</span>   tcp    <span style="color:#ae81ff">111</span>  portmapper
+    <span style="color:#ae81ff">100000</span>    <span style="color:#ae81ff">3</span>   tcp    <span style="color:#ae81ff">111</span>  portmapper
+    <span style="color:#ae81ff">100000</span>    <span style="color:#ae81ff">2</span>   tcp    <span style="color:#ae81ff">111</span>  portmapper
+    <span style="color:#ae81ff">100000</span>    <span style="color:#ae81ff">4</span>   udp    <span style="color:#ae81ff">111</span>  portmapper
+    <span style="color:#ae81ff">100000</span>    <span style="color:#ae81ff">3</span>   udp    <span style="color:#ae81ff">111</span>  portmapper
+    <span style="color:#ae81ff">100000</span>    <span style="color:#ae81ff">2</span>   udp    <span style="color:#ae81ff">111</span>  portmapper
+    <span style="color:#ae81ff">100005</span>    <span style="color:#ae81ff">1</span>   udp  <span style="color:#ae81ff">20048</span>  mountd
+    <span style="color:#ae81ff">100005</span>    <span style="color:#ae81ff">1</span>   tcp  <span style="color:#ae81ff">20048</span>  mountd
+    <span style="color:#ae81ff">100005</span>    <span style="color:#ae81ff">2</span>   udp  <span style="color:#ae81ff">20048</span>  mountd
+    <span style="color:#ae81ff">100005</span>    <span style="color:#ae81ff">2</span>   tcp  <span style="color:#ae81ff">20048</span>  mountd
+    <span style="color:#ae81ff">100005</span>    <span style="color:#ae81ff">3</span>   udp  <span style="color:#ae81ff">20048</span>  mountd
+    <span style="color:#ae81ff">100005</span>    <span style="color:#ae81ff">3</span>   tcp  <span style="color:#ae81ff">20048</span>  mountd
+    <span style="color:#ae81ff">100024</span>    <span style="color:#ae81ff">1</span>   udp  <span style="color:#ae81ff">39560</span>  status
+    <span style="color:#ae81ff">100024</span>    <span style="color:#ae81ff">1</span>   tcp  <span style="color:#ae81ff">53626</span>  status
+    <span style="color:#ae81ff">100003</span>    <span style="color:#ae81ff">3</span>   tcp   <span style="color:#ae81ff">2049</span>  nfs
+    <span style="color:#ae81ff">100003</span>    <span style="color:#ae81ff">4</span>   tcp   <span style="color:#ae81ff">2049</span>  nfs
+    <span style="color:#ae81ff">100227</span>    <span style="color:#ae81ff">3</span>   tcp   <span style="color:#ae81ff">2049</span>
+    <span style="color:#ae81ff">100003</span>    <span style="color:#ae81ff">3</span>   udp   <span style="color:#ae81ff">2049</span>  nfs
+    <span style="color:#ae81ff">100003</span>    <span style="color:#ae81ff">4</span>   udp   <span style="color:#ae81ff">2049</span>  nfs
+    <span style="color:#ae81ff">100227</span>    <span style="color:#ae81ff">3</span>   udp   <span style="color:#ae81ff">2049</span>
+    <span style="color:#ae81ff">100021</span>    <span style="color:#ae81ff">1</span>   udp  <span style="color:#ae81ff">52582</span>  nlockmgr
+    <span style="color:#ae81ff">100021</span>    <span style="color:#ae81ff">3</span>   udp  <span style="color:#ae81ff">52582</span>  nlockmgr
+    <span style="color:#ae81ff">100021</span>    <span style="color:#ae81ff">4</span>   udp  <span style="color:#ae81ff">52582</span>  nlockmgr
+    <span style="color:#ae81ff">100021</span>    <span style="color:#ae81ff">1</span>   tcp  <span style="color:#ae81ff">45289</span>  nlockmgr
+    <span style="color:#ae81ff">100021</span>    <span style="color:#ae81ff">3</span>   tcp  <span style="color:#ae81ff">45289</span>  nlockmgr
+    <span style="color:#ae81ff">100021</span>    <span style="color:#ae81ff">4</span>   tcp  <span style="color:#ae81ff">45289</span>  nlockmgr
+</code></pre></div><p>Note: Si vous avez les erreurs suivantes erreur alors que le ping fonctionne bien entre le client et le serveur, cela veut dire que vous devez revoir les règles de firewall entre le client et le serveur</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">192.168.1.47: RPC: Remote system error - No route to host
+</code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">Error: clnt_create: RPC: Unable to receive
+</code></pre></div><ol start="5">
+<li>Monter le partage</li>
+</ol>
+<p>Une fois les configurations terminées, le montage se fait avec la commande mount. Le dossier dans lequel devra être monté le partage doit exister avant.Dans mon cas, je choisis de créer le dossier /mnt/nfs/</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">mount -t nfs 192.168.1.47:/home/vmuser/ /mnt/nfs
+</code></pre></div><p>Pour le test, vous pouvez créer un fichier sur le serveur et le consulter sur le client.
+Aussi on peut automatiser le montage au démarrage du client en éditant le fichier /etc/fstab</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">sudo vim /etc/fstab
+</code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">192.168.1.47:/home/vmuser/ /mnt/nfs nfs defaults <span style="color:#ae81ff">0</span>
+</code></pre></div><ul>
+<li>192.168.1.47: Ip du serveur NFS</li>
+<li>/home/vmuser: dossier sur le serveur à partager</li>
+<li>point de montage sur le client</li>
+<li>nfs: précision du protocole utilisé</li>
+<li>defaults: une option de montage</li>
+<li>0 0 : pour dire à Linux de ne pas vérifier si le disque contient des erreurs</li>
+</ul>
+<p>Voir: <a href="https://doc.ubuntu-fr.org/nfs">https://doc.ubuntu-fr.org/nfs</a><br>
+<a href="https://www.formatux.fr/formatux-services/module-010-nfs/index.html">https://www.formatux.fr/formatux-services/module-010-nfs/index.html</a></p>
+]]></content>
+        </item>
+        
+    </channel>
+</rss>
