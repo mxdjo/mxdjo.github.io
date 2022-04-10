@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>vagrant on echo mxdjo.xyz 😀</title>
+    <link>https://mxdjo.xyz/tags/vagrant/</link>
+    <description>Recent content in vagrant on echo mxdjo.xyz 😀</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <copyright>&lt;a href=&#34;https://creativecommons.org/licenses/by-sa/2.0/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;CC BY-SA 2.0&lt;/a&gt;</copyright>
+    <lastBuildDate>Mon, 24 Jan 2022 11:02:44 +0000</lastBuildDate><atom:link href="https://mxdjo.xyz/tags/vagrant/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Mettre en place rapidement un environnement de développement avec Vagrant</title>
+      <link>https://mxdjo.xyz/2022/01/24/mettre-en-place-rapidement-un-environnement-de-d%C3%A9veloppement-avec-vagrant/</link>
+      <pubDate>Mon, 24 Jan 2022 11:02:44 +0000</pubDate>
+      
+      <guid>https://mxdjo.xyz/2022/01/24/mettre-en-place-rapidement-un-environnement-de-d%C3%A9veloppement-avec-vagrant/</guid>
+      <description>C&amp;rsquo;est quoi, Vagrant? Vagrant est un outil qui réduit la charge de travail nécessaire pour exécuter et exploiter des machines virtuelles (VM) sur votre ordinateur. Il a les caractéristiques suivantes :
+ Offre une interface de ligne de commande très simple pour gérer les machines virtuelles Prend en charge toutes les principales solutions de virtualisation : VirtualBox, VMWare et Hyper-V Prend en charge les outils de configuration logicielle les plus populaires, y compris Ansible, Chef, Puppet et Salt Facilite les procédures de distribution et de partage des environnements virtuels  Quelle que soit la solution de virtualisation que vous utilisez ou sa complexité, Vagrant démarrera votre VM (ou VMs) avec une seule commande</description>
+    </item>
+    
+  </channel>
+</rss>

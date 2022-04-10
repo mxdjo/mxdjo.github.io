@@ -1,0 +1,365 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="ie=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="author" content="">
+<meta name="description" content="C&amp;rsquo;est quoi, Vagrant? Vagrant est un outil qui réduit la charge de travail nécessaire pour exécuter et exploiter des machines virtuelles (VM) sur votre ordinateur. Il a les caractéristiques suivantes :
+ Offre une interface de ligne de commande très simple pour gérer les machines virtuelles Prend en charge toutes les principales solutions de virtualisation : VirtualBox, VMWare et Hyper-V Prend en charge les outils de configuration logicielle les plus populaires, y compris Ansible, Chef, Puppet et Salt Facilite les procédures de distribution et de partage des environnements virtuels  Quelle que soit la solution de virtualisation que vous utilisez ou sa complexité, Vagrant démarrera votre VM (ou VMs) avec une seule commande" />
+<meta name="keywords" content=", vagrant, virtualbox, devops" />
+<meta name="robots" content="noodp" />
+<meta name="theme-color" content="#252627" />
+<link rel="canonical" href="https://mxdjo.xyz/2022/01/24/mettre-en-place-rapidement-un-environnement-de-d%C3%A9veloppement-avec-vagrant/" />
+
+
+    <title>
+        
+            Mettre en place rapidement un environnement de développement avec Vagrant :: echo mxdjo.xyz 😀  — Bloc-notes d&#39;un Devops
+        
+    </title>
+
+
+
+<link href="https://cdnjs.cloudflare.com/ajax/libs/flag-icon-css/3.5.0/css/flag-icon.min.css" rel="stylesheet"
+    type="text/css">
+
+
+
+<link rel="stylesheet" href="https://mxdjo.xyz/main.9655fd5f70c904b04634d3d3e59f77a994f4471ec393982efe724d829b71f6e7.css">
+
+
+
+
+    <link rel="apple-touch-icon" sizes="180x180" href="https://mxdjo.xyz/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="https://mxdjo.xyz/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="https://mxdjo.xyz/favicon-16x16.png">
+    <link rel="manifest" href="https://mxdjo.xyz/site.webmanifest">
+    <link rel="mask-icon" href="https://mxdjo.xyz/safari-pinned-tab.svg" color="#252627">
+    <link rel="shortcut icon" href="https://mxdjo.xyz/favicon.ico">
+    <meta name="msapplication-TileColor" content="#252627">
+    <meta name="theme-color" content="#252627">
+
+
+
+<meta itemprop="name" content="Mettre en place rapidement un environnement de développement avec Vagrant">
+<meta itemprop="description" content="C&rsquo;est quoi, Vagrant? Vagrant est un outil qui réduit la charge de travail nécessaire pour exécuter et exploiter des machines virtuelles (VM) sur votre ordinateur. Il a les caractéristiques suivantes :
+ Offre une interface de ligne de commande très simple pour gérer les machines virtuelles Prend en charge toutes les principales solutions de virtualisation : VirtualBox, VMWare et Hyper-V Prend en charge les outils de configuration logicielle les plus populaires, y compris Ansible, Chef, Puppet et Salt Facilite les procédures de distribution et de partage des environnements virtuels  Quelle que soit la solution de virtualisation que vous utilisez ou sa complexité, Vagrant démarrera votre VM (ou VMs) avec une seule commande"><meta itemprop="datePublished" content="2022-01-24T11:02:44+00:00" />
+<meta itemprop="dateModified" content="2022-01-24T11:02:44+00:00" />
+<meta itemprop="wordCount" content="754"><meta itemprop="image" content="https://mxdjo.xyz"/>
+<meta itemprop="keywords" content="vagrant,virtualbox,devops," />
+<meta name="twitter:card" content="summary_large_image"/>
+<meta name="twitter:image" content="https://mxdjo.xyz"/>
+
+<meta name="twitter:title" content="Mettre en place rapidement un environnement de développement avec Vagrant"/>
+<meta name="twitter:description" content="C&rsquo;est quoi, Vagrant? Vagrant est un outil qui réduit la charge de travail nécessaire pour exécuter et exploiter des machines virtuelles (VM) sur votre ordinateur. Il a les caractéristiques suivantes :
+ Offre une interface de ligne de commande très simple pour gérer les machines virtuelles Prend en charge toutes les principales solutions de virtualisation : VirtualBox, VMWare et Hyper-V Prend en charge les outils de configuration logicielle les plus populaires, y compris Ansible, Chef, Puppet et Salt Facilite les procédures de distribution et de partage des environnements virtuels  Quelle que soit la solution de virtualisation que vous utilisez ou sa complexité, Vagrant démarrera votre VM (ou VMs) avec une seule commande"/>
+
+
+
+
+
+
+
+
+    <meta property="article:published_time" content="2022-01-24 11:02:44 &#43;0000 UTC" />
+
+
+
+
+
+
+
+
+    </head>
+
+    
+        <body class="">
+    
+    
+        <div class="container">
+            <header class="header">
+    <span class="header__inner">
+        <a href="https://mxdjo.xyz/" style="text-decoration: none;">
+    <div class="logo">
+        
+            <span class="logo__mark">></span>
+            <span class="logo__text">$ echo mxdjo.xyz</span>
+            <span class="logo__cursor" style=
+                  "visibility:hidden;
+                   
+                   ">
+            </span>
+        
+    </div>
+</a>
+
+
+        <span class="header__right">
+            
+                <nav class="menu">
+    <ul class="menu__inner"><li><a href="https://mxdjo.xyz/posts/">posts</a></li>
+    </ul>
+</nav>
+
+                <span class="menu-trigger">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                        <path d="M0 0h24v24H0z" fill="none"/>
+                        <path d="M3 18h18v-2H3v2zm0-5h18v-2H3v2zm0-7v2h18V6H3z"/>
+                    </svg>
+                </span>
+            
+
+            <span class="theme-toggle unselectable"><svg class="theme-toggler" width="24" height="24" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <path d="M22 41C32.4934 41 41 32.4934 41 22C41 11.5066 32.4934 3 22
+  3C11.5066 3 3 11.5066 3 22C3 32.4934 11.5066 41 22 41ZM7 22C7
+  13.7157 13.7157 7 22 7V37C13.7157 37 7 30.2843 7 22Z"/>
+</svg>
+</span>
+        </span>
+    </span>
+</header>
+
+
+            <div class="content">
+                
+  <main class="post">
+
+    <div class="post-info">
+      <p>
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-clock">
+          <circle cx="12" cy="12" r="10"></circle>
+          <polyline points="12 6 12 12 16 14"></polyline>
+        </svg>
+        4 minutes
+
+        
+      </p>
+    </div>
+
+    <article>
+      <h1 class="post-title">
+        <a href="https://mxdjo.xyz/2022/01/24/mettre-en-place-rapidement-un-environnement-de-d%C3%A9veloppement-avec-vagrant/">Mettre en place rapidement un environnement de développement avec Vagrant</a>
+      </h1>
+
+      
+
+      
+
+      <div class="post-content">
+        <h2 id="cest-quoi-vagrant">C&rsquo;est quoi, Vagrant?</h2>
+<p>Vagrant est un outil qui réduit la charge de travail nécessaire pour exécuter et exploiter des machines virtuelles (VM) sur votre ordinateur.
+Il a les caractéristiques suivantes :</p>
+<ul>
+<li>Offre une interface de ligne de commande très simple pour gérer les machines virtuelles</li>
+<li>Prend en charge toutes les principales solutions de virtualisation : VirtualBox, VMWare et Hyper-V</li>
+<li>Prend en charge les outils de configuration logicielle les plus populaires, y compris Ansible, Chef, Puppet et Salt</li>
+<li>Facilite les procédures de distribution et de partage des environnements virtuels</li>
+</ul>
+<p>Quelle que soit la solution de virtualisation que vous utilisez ou sa complexité, Vagrant démarrera votre VM (ou VMs) avec une seule commande</p>
+<div class="highlight"><pre tabindex="0" style="color:#93a1a1;background-color:#002b36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">vagrant up
+</code></pre></div><p>Si nous voulons mettre en place l&rsquo;environnement de développement virtuel manuellement,sans l&rsquo;aide de Vagrant, on devait suivre ces étapes :</p>
+<ol>
+<li>Télécharger l&rsquo;image de la machine virtuelle.</li>
+<li>Démarrer la machine virtuelle.</li>
+<li>Configurer les répertoires partagés et les interfaces réseau de la machine virtuelle.</li>
+<li>Peut-être installer un logiciel dans la VM.</li>
+</ol>
+<p>Vagrant est un logiciel open source distribué sous licence MIT. Il a été initialement écrit par Mitchell Hashimoto, et en février 2015, près de 500 programmeurs y ont contribué. Le code source de Vagrant est disponible sur <a href="https://github.com/mitchellh/vagrant">https://github.com/mitchellh/vagrant</a>.
+Vagrant s&rsquo;appuie sur des solutions de virtualisation existantes et bien connues telles que VirtualBox, VMWare Workstation  et fournit une interface de ligne de commande unifiée et simple pour gérer les machines virtuelles.
+Dans la terminologie de Vagrant, ces solutions de virtualisation sous-jacentes sont appelées providers.
+La liste officielle des providers comprend les éléments suivants :
+• VirtualBox
+• VMWare (Fusion et Workstation)
+• Docker
+• Hyper V</p>
+<p>Un autre mot à ajouter dans le vocabulaire vagrant : les box. Ce sont des templates des images du système d&rsquo;exploitation invité. Elles sont assez volumineuses (entre 1 et 2 Go en général)</p>
+<h2 id="installation-de-vagrant">Installation de Vagrant</h2>
+<p>Bien avant l&rsquo;installation de Vagrant, nous devons nous assurer que notre provider est installé. Dans notre cas, nous avons choisi VirtualBox. Les instructions d&rsquo;instalation sont disponibles ici <a href="https://www.virtualbox.org">https://www.virtualbox.org</a></p>
+<p>Une fois le provider installé, nous installons maintenant Vagrant. Le processus d&rsquo;installation est disponible ici <a href="https://www.vagrantup.com/downloads">https://www.vagrantup.com/downloads</a></p>
+<h2 id="utilisation-de-vagrant">Utilisation de Vagrant</h2>
+<p>Par défaut, Vagrant</p>
+<p>Vagrant stocke les box dans le répertoire personnel de l&rsquo;utilisateur actuel dans le dossier ~/.vagrant.d/.</p>
+<p>L&rsquo;emplacement du répertoire d&rsquo;accueil de Vagrant peut être redéfini avec la variable d&rsquo;environnement VAGRANT_HOME. Vous pouvez modifier sa valeur en exécutant la commande suivante dans bash</p>
+<div class="highlight"><pre tabindex="0" style="color:#93a1a1;background-color:#002b36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="color:#268bd2">VAGRANT_HOME</span><span style="color:#719e07">=</span>/un/autre/dossier
+</code></pre></div><h3 id="initialiser-un-projet">Initialiser un projet</h3>
+<p>La première étape de la configuration d&rsquo;un projet Vagrant consiste à créer un Vagrantfile.</p>
+<p>Un Vagrantfile est un fichier Ruby qui demande à Vagrant de créer notre machine virtuelle, les instructions étant executées du bas vers le haut.</p>
+<p>Il peut être écrit from scratch (manuellement) ou en utilisant un template donné par la &ldquo;vagrant init&rdquo;.</p>
+<p>Les instructions les plus courantes dans un Vagrantfile sont:</p>
+<ul>
+<li>config.vm.box : C&rsquo;est l' OS à utiliser . Une liste de boxes sont ici <a href="https://www.vagrantbox.es/">https://www.vagrantbox.es/</a></li>
+<li>config.vm.provider: virtualbox dans notre cas</li>
+<li>config.vm.network: définit la maniere dont notre hote voit notre box</li>
+<li>config.vm.shared_folder: definit comment notre ordinateur accède aux fichiers de la box</li>
+<li>config.vm.provision:  permet de configurer la machine juste après le démarrage</li>
+</ul>
+<p>Voyons ci-dessous un exemple de Vagrantfile</p>
+<pre tabindex="0"><code>Vagrant.configure(&quot;2&quot;) do |config|
+  config.vm.box = &quot;hashicorp/bionic64&quot;
+  config.vm.provider &quot;virtualbox&quot;
+  config.vm.provision :shell, path: &quot;bootstrap.sh&quot;
+end
+</code></pre><ul>
+<li>Ici la version de l&rsquo;API de Vagrant utilisé est la version 2</li>
+<li>La box à utiliser est hashicorp/bionic64</li>
+<li>Notre provider est virtualbox</li>
+<li>un script shell nommé bootstrap.sh est lancé dès le démarrage de la machine. &ldquo;config.vm.provision&rdquo; permet d&rsquo;installer automatiquement des logiciels, de modifier des configurations, etc. sur la machine durant le processus de mise en place de la machine.</li>
+</ul>
+<h3 id="mettre-en-place-notre-environnement-de-developpement-web">Mettre en place notre environnement de developpement web</h3>
+<p>Pour notre environnement de developpement web, nous allons utiliser la box ubuntu/focal64</p>
+<pre tabindex="0"><code>vagrant up ubuntu/focal64
+</code></pre><p>Nous allons maintenant modifier le Vagrantfile obtenu.
+La première modification sera d&rsquo;attribuer une adresse Ip privée à notre VM</p>
+<pre tabindex="0"><code>config.vm.network &quot;private_network&quot;, ip: &quot;192.168.33.10&quot;
+</code></pre><p>Ensuite nous définissons un script &ldquo;init-vm.sh&rdquo; qui sera lancé pour installer LAMP</p>
+<p>Contenu du init-vm.sh</p>
+<pre tabindex="0"><code># Update Packages
+apt update
+# Upgrade Packages
+apt upgrade
+
+# Apache
+apt install -y apache2 apache2-utils
+
+# Enable Apache Mods
+a2enmod rewrite
+
+#Add Onrej PPA Repo
+apt-add-repository ppa:ondrej/php
+apt-get update
+
+# Install PHP
+apt install -y php7.4
+
+# PHP Apache Mod
+apt install -y libapache2-mod-php7.4
+
+# Restart Apache
+service apache2 restart
+
+# PHP Mods
+apt install -y php-common php7.4-cli php7.4-common php7.4-json php7.4-opcache php7.4-readline
+
+# Set MySQL Pass
+debconf-set-selections &lt;&lt;&lt; 'mysql-server mysql-server/root_password password root'
+debconf-set-selections &lt;&lt;&lt; 'mysql-server mysql-server/root_password_again password root'
+
+# Install MySQL
+apt install -y mariadb-server mariadb-client
+
+# PHP-MYSQL lib
+apt install -y php7.4-mysql
+
+# Restart Apache
+sudo service apache2 restart
+
+</code></pre>
+      </div>
+    </article>
+
+    <hr />
+
+    <div class="post-info">
+      
+    <p>
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-tag meta-icon"><path d="M20.59 13.41l-7.17 7.17a2 2 0 0 1-2.83 0L2 12V2h10l8.59 8.59a2 2 0 0 1 0 2.82z"></path><line x1="7" y1="7" x2="7" y2="7"></line></svg>
+
+        <span class="tag"><a href="https://mxdjo.xyz/tags/vagrant/">vagrant</a></span>
+        <span class="tag"><a href="https://mxdjo.xyz/tags/virtualbox/">virtualbox</a></span>
+        <span class="tag"><a href="https://mxdjo.xyz/tags/devops/">devops</a></span>
+        
+    </p>
+
+      
+
+      <p>
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-file-text">
+          <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
+          <polyline points="14 2 14 8 20 8"></polyline>
+          <line x1="16" y1="13" x2="8" y2="13"></line>
+          <line x1="16" y1="17" x2="8" y2="17"></line>
+          <polyline points="10 9 9 9 8 9"></polyline>
+        </svg>
+        754 Words
+      </p>
+
+      <p>
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-calendar">
+          <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect>
+          <line x1="16" y1="2" x2="16" y2="6"></line>
+          <line x1="8" y1="2" x2="8" y2="6"></line>
+          <line x1="3" y1="10" x2="21" y2="10"></line>
+        </svg>
+        
+          2022-01-24 11:02 &#43;0000
+        
+
+         
+          
+        
+      </p>
+    </div>
+
+    
+      <div class="pagination">
+        <div class="pagination__title">
+          <span class="pagination__title-h"></span>
+          <hr />
+        </div>
+
+        <div class="pagination__buttons">
+          
+            <span class="button previous">
+              <a href="https://mxdjo.xyz/2022/04/09/introduction-%C3%A0-linfrastructure-as-code-avec-terraform/">
+                <span class="button__icon">←</span>
+                <span class="button__text">Introduction à l&#39;Infrastructure As Code avec Terraform</span>
+              </a>
+            </span>
+          
+
+          
+        </div>
+      </div>
+    
+
+
+    
+
+    
+
+  </main>
+
+            </div>
+
+            
+                <footer class="footer">
+    <div class="footer__inner">
+        <div class="footer__content">
+            <span>&copy; 2022</span>
+            
+            <span><a href="https://creativecommons.org/licenses/by-sa/2.0/" target="_blank" rel="noopener">CC BY-SA 2.0</a></span><span><a href="https://mxdjo.xyz/posts/index.xml" target="_blank" title="rss"><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-rss"><path d="M4 11a9 9 0 0 1 9 9"></path><path d="M4 4a16 16 0 0 1 16 16"></path><circle cx="5" cy="19" r="1"></circle></svg></a></span>
+        </div>
+    </div>
+    <div class="footer__inner">
+        <div class="footer__content">
+            <span>Powered by <a href="http://gohugo.io">Hugo</a></span>
+            <span>Made with &#10084; by <a href="https://github.com/rhazdon">Djordje Atlialp</a></span>
+          </div>
+    </div>
+</footer>
+
+            
+        </div>
+
+        
+
+
+
+
+<script type="text/javascript" src="https://mxdjo.xyz/bundle.min.e9f93b80e78a22e6f04cbb5f73e0f9c4ba60ff73a2a0ef85965c688f93dd1f2722a282e30e485603e4c65b1b346720e35f213435ec5556e196a97a68d097c80f.js" integrity="sha512-6fk7gOeKIubwTLtfc&#43;D5xLpg/3OioO&#43;Fllxoj5PdHyciooLjDkhWA&#43;TGWxs0ZyDjXyE0NexVVuGWqXpo0JfIDw=="></script>
+
+
+
+    </body>
+</html>

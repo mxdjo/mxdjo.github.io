@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Terraform on echo mxdjo.xyz 😀</title>
+    <link>https://mxdjo.xyz/tags/terraform/</link>
+    <description>Recent content in Terraform on echo mxdjo.xyz 😀</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <copyright>&lt;a href=&#34;https://creativecommons.org/licenses/by-sa/2.0/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;CC BY-SA 2.0&lt;/a&gt;</copyright>
+    <lastBuildDate>Sat, 09 Apr 2022 19:48:58 +0000</lastBuildDate><atom:link href="https://mxdjo.xyz/tags/terraform/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Introduction à l&#39;Infrastructure As Code avec Terraform</title>
+      <link>https://mxdjo.xyz/2022/04/09/introduction-%C3%A0-linfrastructure-as-code-avec-terraform/</link>
+      <pubDate>Sat, 09 Apr 2022 19:48:58 +0000</pubDate>
+      
+      <guid>https://mxdjo.xyz/2022/04/09/introduction-%C3%A0-linfrastructure-as-code-avec-terraform/</guid>
+      <description>On-premise, Cloud et Infrastructure as Code Ceux qui sont dans le monde IT sont unanimes sur un fait: les infrastructures de milliers d&amp;rsquo;entreprises sont entrain de passer du matériel physique des centres de données à une infrastructure utilisant la technologie de virtualisation et le cloud computing.
+Le matériel n&amp;rsquo;est plus physique, il est virtuel. On a desormais la possibilité de construire nos infrastructures en quelques clics via des interfaces Web. Plus tard, en tant que developpeur/administrateur système/administrateur réseaux , l&amp;rsquo;on cherche à créer des scripts Powershell, Python, Ruby pour gérer nos environnements.</description>
+    </item>
+    
+  </channel>
+</rss>

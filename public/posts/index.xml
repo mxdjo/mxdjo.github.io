@@ -1,0 +1,168 @@
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+    <channel>
+        <title>Posts on echo mxdjo.xyz 😀</title>
+        <link>https://mxdjo.xyz/posts/</link>
+        <description>Recent content in Posts on echo mxdjo.xyz 😀</description>
+        <generator>Hugo -- gohugo.io</generator>
+        <copyright>&lt;a href=&#34;https://creativecommons.org/licenses/by-sa/2.0/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;CC BY-SA 2.0&lt;/a&gt;</copyright>
+        <lastBuildDate>Sat, 09 Apr 2022 19:48:58 +0000</lastBuildDate>
+        <atom:link href="https://mxdjo.xyz/posts/index.xml" rel="self" type="application/rss+xml" />
+        
+        <item>
+            <title>Introduction à l&#39;Infrastructure As Code avec Terraform</title>
+            <link>https://mxdjo.xyz/2022/04/09/introduction-%C3%A0-linfrastructure-as-code-avec-terraform/</link>
+            <pubDate>Sat, 09 Apr 2022 19:48:58 +0000</pubDate>
+            
+            <guid>https://mxdjo.xyz/2022/04/09/introduction-%C3%A0-linfrastructure-as-code-avec-terraform/</guid>
+            <description>On-premise, Cloud et Infrastructure as Code Ceux qui sont dans le monde IT sont unanimes sur un fait: les infrastructures de milliers d&amp;rsquo;entreprises sont entrain de passer du matériel physique des centres de données à une infrastructure utilisant la technologie de virtualisation et le cloud computing.
+Le matériel n&amp;rsquo;est plus physique, il est virtuel. On a desormais la possibilité de construire nos infrastructures en quelques clics via des interfaces Web. Plus tard, en tant que developpeur/administrateur système/administrateur réseaux , l&amp;rsquo;on cherche à créer des scripts Powershell, Python, Ruby pour gérer nos environnements.</description>
+            <content type="html"><![CDATA[<h2 id="on-premise-cloud-et-infrastructure-as-code">On-premise, Cloud et Infrastructure as Code</h2>
+<p>Ceux qui sont dans le monde IT sont unanimes sur un fait: les infrastructures de  milliers d&rsquo;entreprises sont entrain de passer du matériel physique des centres de données à une infrastructure utilisant la technologie de virtualisation et le cloud computing.</p>
+<p>Le matériel n&rsquo;est plus physique, il est virtuel. On a desormais la possibilité de construire nos infrastructures en quelques clics via des interfaces Web.
+Plus tard, en tant que developpeur/administrateur système/administrateur réseaux , l&rsquo;on cherche à créer des scripts Powershell, Python, Ruby pour gérer nos environnements. Ces scripts peuvent être puissants mais ne sont pas la solution optimale pour la gestion des infrastructures cloud.</p>
+<p>Pourquoi?
+Imaginons une situation où nous avons besoin de 10 serveurs. Nous écrivons notre script Python pour la première fois et les serveurs sont fonctionnels. Et si nous voulons maintenant reduire le nombre de serveurs à 3? Nous serons obligés de modifier notre script en y ajoutant des instructions &ldquo;if&rdquo; et réfléchir à une logique qui decidera lesquels des serveurs seront supprimés ou pas. Cela peut rendre le code long et difficile à maintenir.</p>
+<p>Fort heureusement nous avons avec l&rsquo;essor du Cloud l&rsquo;apparition d&rsquo;outils qui utilisent des langages déclaratifs ( permettent de définir l&rsquo;etat final de l&rsquo;infrastructure et laisser l&rsquo;outil gérer la construction). C&rsquo;est le concept de l&rsquo;Infrastructure As Code.</p>
+<h2 id="pourquoi-terraform">Pourquoi Terraform</h2>
+<p>Lorsqu&rsquo;on recherche sur Internet &ldquo;Infrastructure as Code&rdquo;, on se trouve avec une longue liste d&rsquo;outils dont les plus populaires:</p>
+<ul>
+<li>Chef</li>
+<li>Puppet</li>
+<li>Ansible</li>
+<li>Salstack</li>
+<li>CloudFormation</li>
+<li>Terraform</li>
+</ul>
+<p>Tous ces outils sont open source, soutenus par de grandes communautés de contributeurs et interagissent avec de nombreux fournisseurs de cloud différents (à l&rsquo;exception de CloudFormation, qui est reservée à AWS uniquement). Tous offrent un support payant aux entreprises. Tous sont bien documentés, à la fois en termes de documentation officielle et de ressources communautaires telles que les articles de blog et les questions sur  StackOverflow. Alors, pourquoi j&rsquo;ai fait le choix de Terraform?</p>
+<p>J&rsquo;ai porté mon choix sur terraform pour 2 raisons:</p>
+<ul>
+<li>Chef, Puppet, Ansible et SaltStack sont plus efficaces en tant qu&rsquo;outils de gestion de configuration, ce qui signifie qu&rsquo;ils sont conçus pour installer et gérer des logiciels, sur des serveurs existants.</li>
+<li>CloudFormation et Terraform sont des outils de provisioning, ce qui signifie qu&rsquo;ils sont conçus pour provisionner les serveurs eux-mêmes. Comme dit auparavant CloudFormation n&rsquo;interagit qu&rsquo;avec AWS. Terraform par contre gère le cloud public (AWS,GCP, Azure, OVH ), le cloud privé (Openstack) et bien d&rsquo;autres.</li>
+</ul>
+<h2 id="installation-de-terraform">Installation de Terraform</h2>
+<p>Vous pouvez suivre la documentation officielle pour installer Terraform <a href="https://learn.hashicorp.com/tutorials/terraform/install-cli">ici</a></p>
+<h2 id="terminologies-terraform">Terminologies Terraform </h2>
+<p>Dans le prochain billet, nous créerons nos premières ressources Terraform sur le Cloud de AWS. Pour en profiter pleinement, je vous suggère de créer un <a href="https://aws.amazon.com/fr/free/">compte gratuit AWS</a> et d&rsquo;installer le <a href="https://docs.aws.amazon.com/cli/latest/userguide/getting-started-install.html">CLI de AWS</a></p>
+]]></content>
+        </item>
+        
+        <item>
+            <title>Mettre en place rapidement un environnement de développement avec Vagrant</title>
+            <link>https://mxdjo.xyz/2022/01/24/mettre-en-place-rapidement-un-environnement-de-d%C3%A9veloppement-avec-vagrant/</link>
+            <pubDate>Mon, 24 Jan 2022 11:02:44 +0000</pubDate>
+            
+            <guid>https://mxdjo.xyz/2022/01/24/mettre-en-place-rapidement-un-environnement-de-d%C3%A9veloppement-avec-vagrant/</guid>
+            <description>C&amp;rsquo;est quoi, Vagrant? Vagrant est un outil qui réduit la charge de travail nécessaire pour exécuter et exploiter des machines virtuelles (VM) sur votre ordinateur. Il a les caractéristiques suivantes :
+ Offre une interface de ligne de commande très simple pour gérer les machines virtuelles Prend en charge toutes les principales solutions de virtualisation : VirtualBox, VMWare et Hyper-V Prend en charge les outils de configuration logicielle les plus populaires, y compris Ansible, Chef, Puppet et Salt Facilite les procédures de distribution et de partage des environnements virtuels  Quelle que soit la solution de virtualisation que vous utilisez ou sa complexité, Vagrant démarrera votre VM (ou VMs) avec une seule commande</description>
+            <content type="html"><![CDATA[<h2 id="cest-quoi-vagrant">C&rsquo;est quoi, Vagrant?</h2>
+<p>Vagrant est un outil qui réduit la charge de travail nécessaire pour exécuter et exploiter des machines virtuelles (VM) sur votre ordinateur.
+Il a les caractéristiques suivantes :</p>
+<ul>
+<li>Offre une interface de ligne de commande très simple pour gérer les machines virtuelles</li>
+<li>Prend en charge toutes les principales solutions de virtualisation : VirtualBox, VMWare et Hyper-V</li>
+<li>Prend en charge les outils de configuration logicielle les plus populaires, y compris Ansible, Chef, Puppet et Salt</li>
+<li>Facilite les procédures de distribution et de partage des environnements virtuels</li>
+</ul>
+<p>Quelle que soit la solution de virtualisation que vous utilisez ou sa complexité, Vagrant démarrera votre VM (ou VMs) avec une seule commande</p>
+<div class="highlight"><pre tabindex="0" style="color:#93a1a1;background-color:#002b36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">vagrant up
+</code></pre></div><p>Si nous voulons mettre en place l&rsquo;environnement de développement virtuel manuellement,sans l&rsquo;aide de Vagrant, on devait suivre ces étapes :</p>
+<ol>
+<li>Télécharger l&rsquo;image de la machine virtuelle.</li>
+<li>Démarrer la machine virtuelle.</li>
+<li>Configurer les répertoires partagés et les interfaces réseau de la machine virtuelle.</li>
+<li>Peut-être installer un logiciel dans la VM.</li>
+</ol>
+<p>Vagrant est un logiciel open source distribué sous licence MIT. Il a été initialement écrit par Mitchell Hashimoto, et en février 2015, près de 500 programmeurs y ont contribué. Le code source de Vagrant est disponible sur <a href="https://github.com/mitchellh/vagrant">https://github.com/mitchellh/vagrant</a>.
+Vagrant s&rsquo;appuie sur des solutions de virtualisation existantes et bien connues telles que VirtualBox, VMWare Workstation  et fournit une interface de ligne de commande unifiée et simple pour gérer les machines virtuelles.
+Dans la terminologie de Vagrant, ces solutions de virtualisation sous-jacentes sont appelées providers.
+La liste officielle des providers comprend les éléments suivants :
+• VirtualBox
+• VMWare (Fusion et Workstation)
+• Docker
+• Hyper V</p>
+<p>Un autre mot à ajouter dans le vocabulaire vagrant : les box. Ce sont des templates des images du système d&rsquo;exploitation invité. Elles sont assez volumineuses (entre 1 et 2 Go en général)</p>
+<h2 id="installation-de-vagrant">Installation de Vagrant</h2>
+<p>Bien avant l&rsquo;installation de Vagrant, nous devons nous assurer que notre provider est installé. Dans notre cas, nous avons choisi VirtualBox. Les instructions d&rsquo;instalation sont disponibles ici <a href="https://www.virtualbox.org">https://www.virtualbox.org</a></p>
+<p>Une fois le provider installé, nous installons maintenant Vagrant. Le processus d&rsquo;installation est disponible ici <a href="https://www.vagrantup.com/downloads">https://www.vagrantup.com/downloads</a></p>
+<h2 id="utilisation-de-vagrant">Utilisation de Vagrant</h2>
+<p>Par défaut, Vagrant</p>
+<p>Vagrant stocke les box dans le répertoire personnel de l&rsquo;utilisateur actuel dans le dossier ~/.vagrant.d/.</p>
+<p>L&rsquo;emplacement du répertoire d&rsquo;accueil de Vagrant peut être redéfini avec la variable d&rsquo;environnement VAGRANT_HOME. Vous pouvez modifier sa valeur en exécutant la commande suivante dans bash</p>
+<div class="highlight"><pre tabindex="0" style="color:#93a1a1;background-color:#002b36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="color:#268bd2">VAGRANT_HOME</span><span style="color:#719e07">=</span>/un/autre/dossier
+</code></pre></div><h3 id="initialiser-un-projet">Initialiser un projet</h3>
+<p>La première étape de la configuration d&rsquo;un projet Vagrant consiste à créer un Vagrantfile.</p>
+<p>Un Vagrantfile est un fichier Ruby qui demande à Vagrant de créer notre machine virtuelle, les instructions étant executées du bas vers le haut.</p>
+<p>Il peut être écrit from scratch (manuellement) ou en utilisant un template donné par la &ldquo;vagrant init&rdquo;.</p>
+<p>Les instructions les plus courantes dans un Vagrantfile sont:</p>
+<ul>
+<li>config.vm.box : C&rsquo;est l' OS à utiliser . Une liste de boxes sont ici <a href="https://www.vagrantbox.es/">https://www.vagrantbox.es/</a></li>
+<li>config.vm.provider: virtualbox dans notre cas</li>
+<li>config.vm.network: définit la maniere dont notre hote voit notre box</li>
+<li>config.vm.shared_folder: definit comment notre ordinateur accède aux fichiers de la box</li>
+<li>config.vm.provision:  permet de configurer la machine juste après le démarrage</li>
+</ul>
+<p>Voyons ci-dessous un exemple de Vagrantfile</p>
+<pre tabindex="0"><code>Vagrant.configure(&quot;2&quot;) do |config|
+  config.vm.box = &quot;hashicorp/bionic64&quot;
+  config.vm.provider &quot;virtualbox&quot;
+  config.vm.provision :shell, path: &quot;bootstrap.sh&quot;
+end
+</code></pre><ul>
+<li>Ici la version de l&rsquo;API de Vagrant utilisé est la version 2</li>
+<li>La box à utiliser est hashicorp/bionic64</li>
+<li>Notre provider est virtualbox</li>
+<li>un script shell nommé bootstrap.sh est lancé dès le démarrage de la machine. &ldquo;config.vm.provision&rdquo; permet d&rsquo;installer automatiquement des logiciels, de modifier des configurations, etc. sur la machine durant le processus de mise en place de la machine.</li>
+</ul>
+<h3 id="mettre-en-place-notre-environnement-de-developpement-web">Mettre en place notre environnement de developpement web</h3>
+<p>Pour notre environnement de developpement web, nous allons utiliser la box ubuntu/focal64</p>
+<pre tabindex="0"><code>vagrant up ubuntu/focal64
+</code></pre><p>Nous allons maintenant modifier le Vagrantfile obtenu.
+La première modification sera d&rsquo;attribuer une adresse Ip privée à notre VM</p>
+<pre tabindex="0"><code>config.vm.network &quot;private_network&quot;, ip: &quot;192.168.33.10&quot;
+</code></pre><p>Ensuite nous définissons un script &ldquo;init-vm.sh&rdquo; qui sera lancé pour installer LAMP</p>
+<p>Contenu du init-vm.sh</p>
+<pre tabindex="0"><code># Update Packages
+apt update
+# Upgrade Packages
+apt upgrade
+
+# Apache
+apt install -y apache2 apache2-utils
+
+# Enable Apache Mods
+a2enmod rewrite
+
+#Add Onrej PPA Repo
+apt-add-repository ppa:ondrej/php
+apt-get update
+
+# Install PHP
+apt install -y php7.4
+
+# PHP Apache Mod
+apt install -y libapache2-mod-php7.4
+
+# Restart Apache
+service apache2 restart
+
+# PHP Mods
+apt install -y php-common php7.4-cli php7.4-common php7.4-json php7.4-opcache php7.4-readline
+
+# Set MySQL Pass
+debconf-set-selections &lt;&lt;&lt; 'mysql-server mysql-server/root_password password root'
+debconf-set-selections &lt;&lt;&lt; 'mysql-server mysql-server/root_password_again password root'
+
+# Install MySQL
+apt install -y mariadb-server mariadb-client
+
+# PHP-MYSQL lib
+apt install -y php7.4-mysql
+
+# Restart Apache
+sudo service apache2 restart
+
+</code></pre>]]></content>
+        </item>
+        
+    </channel>
+</rss>
