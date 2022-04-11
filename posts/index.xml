@@ -5,8 +5,37 @@
         <description>Recent content in Posts on echo mxdjo.xyz 😀</description>
         <generator>Hugo -- gohugo.io</generator>
         <copyright>&lt;a href=&#34;https://creativecommons.org/licenses/by-sa/2.0/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;CC BY-SA 2.0&lt;/a&gt;</copyright>
-        <lastBuildDate>Sat, 09 Apr 2022 19:48:58 +0000</lastBuildDate>
+        <lastBuildDate>Mon, 11 Apr 2022 10:07:37 +0000</lastBuildDate>
         <atom:link href="https://mxdjo.xyz/posts/index.xml" rel="self" type="application/rss+xml" />
+        
+        <item>
+            <title>Creer Une Instance EC2 avec Terraform sur AWS</title>
+            <link>https://mxdjo.xyz/2022/04/11/creer-une-instance-ec2-avec-terraform-sur-aws/</link>
+            <pubDate>Mon, 11 Apr 2022 10:07:37 +0000</pubDate>
+            
+            <guid>https://mxdjo.xyz/2022/04/11/creer-une-instance-ec2-avec-terraform-sur-aws/</guid>
+            <description>Préparer le système Installation de Terraform Pour débuter nous devons au préalable installer Terraform.
+Terraform est disponible à la fois pour Windows, Linux, MacOS, FreeBSD, OpenBSD et Solaris. Vous pouvez suivre la documentation officielle pour l&amp;rsquo;installation ici
+Génerer les Acces AWS IAM Nous avons installé Terraform. Cependant comment terraform construira l&amp;rsquo;infrastrucutre sans permission chez AWS? Pour régler ce point, nous avons besoin de générer:
+ AWS_ACCESS_KEY_ID AWS_SECRET_ACCESS_KEY  Ces deux accès peuvent être définis sur notre machine en tant que variable d&amp;rsquo;environnement</description>
+            <content type="html"><![CDATA[<h2 id="préparer-le-système">Préparer le système</h2>
+<h3 id="installation-de-terraform">Installation de Terraform</h3>
+<p>Pour débuter nous devons au préalable installer Terraform.</p>
+<p>Terraform est disponible à la fois pour Windows, Linux, MacOS, FreeBSD, OpenBSD et Solaris. Vous pouvez suivre la documentation officielle pour l&rsquo;installation <a href="https://learn.hashicorp.com/tutorials/terraform/install-cli">ici</a></p>
+<h3 id="génerer-les-acces-aws-iam">Génerer les Acces AWS IAM</h3>
+<p>Nous avons installé Terraform. Cependant comment terraform construira l&rsquo;infrastrucutre sans permission chez AWS? Pour régler ce point, nous avons besoin de générer:</p>
+<ul>
+<li>AWS_ACCESS_KEY_ID</li>
+<li>AWS_SECRET_ACCESS_KEY</li>
+</ul>
+<p>Ces deux accès peuvent être définis sur notre machine en tant que variable d&rsquo;environnement</p>
+<p>Comment obtenir ces 2 éléments?
+Etape 1: Se connecter à notre console AWS et chercher IAM</p>
+<p><img src="images/terraform-part2/IAM.png" alt="step1"></p>
+<pre tabindex="0"><code>export AWS_ACCESS_KEY_ID=&quot;&lt;NOTRE_AWS_ACCESS_KEY_ID&gt;&quot;
+</code></pre><pre tabindex="0"><code>export AWS_SECRET_ACCESS_KEY=&quot;&lt;YOUR_AWS_SECRET_ACCESS_KEY&gt;&quot;
+</code></pre>]]></content>
+        </item>
         
         <item>
             <title>Introduction à l&#39;Infrastructure As Code avec Terraform</title>

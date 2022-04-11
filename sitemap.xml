@@ -2,25 +2,34 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
-    <loc>https://mxdjo.xyz/tags/devops/</loc>
-    <lastmod>2022-04-09T19:48:58+00:00</lastmod>
+    <loc>https://mxdjo.xyz/tags/aws/</loc>
+    <lastmod>2022-04-11T10:07:37+00:00</lastmod>
+  </url><url>
+    <loc>https://mxdjo.xyz/2022/04/11/creer-une-instance-ec2-avec-terraform-sur-aws/</loc>
+    <lastmod>2022-04-11T10:07:37+00:00</lastmod>
   </url><url>
     <loc>https://mxdjo.xyz/</loc>
+    <lastmod>2022-04-11T10:07:37+00:00</lastmod>
+  </url><url>
+    <loc>https://mxdjo.xyz/tags/iam/</loc>
+    <lastmod>2022-04-11T10:07:37+00:00</lastmod>
+  </url><url>
+    <loc>https://mxdjo.xyz/posts/</loc>
+    <lastmod>2022-04-11T10:07:37+00:00</lastmod>
+  </url><url>
+    <loc>https://mxdjo.xyz/tags/</loc>
+    <lastmod>2022-04-11T10:07:37+00:00</lastmod>
+  </url><url>
+    <loc>https://mxdjo.xyz/tags/terraform/</loc>
+    <lastmod>2022-04-11T10:07:37+00:00</lastmod>
+  </url><url>
+    <loc>https://mxdjo.xyz/tags/devops/</loc>
     <lastmod>2022-04-09T19:48:58+00:00</lastmod>
   </url><url>
     <loc>https://mxdjo.xyz/tags/iac/</loc>
     <lastmod>2022-04-09T19:48:58+00:00</lastmod>
   </url><url>
     <loc>https://mxdjo.xyz/2022/04/09/introduction-%C3%A0-linfrastructure-as-code-avec-terraform/</loc>
-    <lastmod>2022-04-09T19:48:58+00:00</lastmod>
-  </url><url>
-    <loc>https://mxdjo.xyz/posts/</loc>
-    <lastmod>2022-04-09T19:48:58+00:00</lastmod>
-  </url><url>
-    <loc>https://mxdjo.xyz/tags/</loc>
-    <lastmod>2022-04-09T19:48:58+00:00</lastmod>
-  </url><url>
-    <loc>https://mxdjo.xyz/tags/terraform/</loc>
     <lastmod>2022-04-09T19:48:58+00:00</lastmod>
   </url><url>
     <loc>https://mxdjo.xyz/2022/01/24/mettre-en-place-rapidement-un-environnement-de-d%C3%A9veloppement-avec-vagrant/</loc>
