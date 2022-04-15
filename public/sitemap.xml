@@ -2,22 +2,28 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
+    <loc>https://mxdjo.xyz/</loc>
+    <lastmod>2022-04-15T15:57:49+00:00</lastmod>
+  </url><url>
+    <loc>https://mxdjo.xyz/2022/04/15/installer-mysql-%C3%A0-partir-des-sources/</loc>
+    <lastmod>2022-04-15T15:57:49+00:00</lastmod>
+  </url><url>
+    <loc>https://mxdjo.xyz/posts/</loc>
+    <lastmod>2022-04-15T15:57:49+00:00</lastmod>
+  </url><url>
+    <loc>https://mxdjo.xyz/tags/</loc>
+    <lastmod>2022-04-15T15:57:49+00:00</lastmod>
+  </url><url>
+    <loc>https://mxdjo.xyz/tags/untagged/</loc>
+    <lastmod>2022-04-15T15:57:49+00:00</lastmod>
+  </url><url>
     <loc>https://mxdjo.xyz/tags/aws/</loc>
     <lastmod>2022-04-11T10:07:37+00:00</lastmod>
   </url><url>
     <loc>https://mxdjo.xyz/2022/04/11/cr%C3%A9er-une-instance-ec2-avec-terraform-sur-aws/</loc>
     <lastmod>2022-04-11T10:07:37+00:00</lastmod>
   </url><url>
-    <loc>https://mxdjo.xyz/</loc>
-    <lastmod>2022-04-11T10:07:37+00:00</lastmod>
-  </url><url>
     <loc>https://mxdjo.xyz/tags/iam/</loc>
-    <lastmod>2022-04-11T10:07:37+00:00</lastmod>
-  </url><url>
-    <loc>https://mxdjo.xyz/posts/</loc>
-    <lastmod>2022-04-11T10:07:37+00:00</lastmod>
-  </url><url>
-    <loc>https://mxdjo.xyz/tags/</loc>
     <lastmod>2022-04-11T10:07:37+00:00</lastmod>
   </url><url>
     <loc>https://mxdjo.xyz/tags/terraform/</loc>

@@ -50,7 +50,7 @@ Terraform est disponible à la fois pour Windows, Linux, MacOS, FreeBSD, OpenBSD
 Génerer les Acces AWS IAM Nous avons installé Terraform. Cependant comment terraform construira l&rsquo;infrastrucutre sans permission chez AWS? Pour régler ce point, nous avons besoin de générer:
  AWS_ACCESS_KEY_ID AWS_SECRET_ACCESS_KEY  Ces deux accès peuvent être définis sur notre machine en tant que variable d&rsquo;environnement"><meta itemprop="datePublished" content="2022-04-11T10:07:37+00:00" />
 <meta itemprop="dateModified" content="2022-04-11T10:07:37+00:00" />
-<meta itemprop="wordCount" content="100"><meta itemprop="image" content="https://mxdjo.xyz"/>
+<meta itemprop="wordCount" content="103"><meta itemprop="image" content="https://mxdjo.xyz"/>
 <meta itemprop="keywords" content="AWS,Terraform,IAM," />
 <meta name="twitter:card" content="summary_large_image"/>
 <meta name="twitter:image" content="https://mxdjo.xyz"/>
@@ -166,7 +166,9 @@ Génerer les Acces AWS IAM Nous avons installé Terraform. Cependant comment ter
 <p>Ces deux accès peuvent être définis sur notre machine en tant que variable d&rsquo;environnement</p>
 <p>Comment obtenir ces 2 éléments?
 Etape 1: Se connecter à notre console AWS et chercher IAM</p>
-<p><img src="IAM.png" alt="step1"></p>
+<p><a href="https://aws.amazon.com/fr/premiumsupport/knowledge-center/create-access-key/">https://aws.amazon.com/fr/premiumsupport/knowledge-center/create-access-key/</a></p>
+<p><a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/best-practices.html#grant-least-privilege">https://docs.aws.amazon.com/IAM/latest/UserGuide/best-practices.html#grant-least-privilege</a></p>
+<p><a href="https://www.terraform.io/intro/core-workflow">https://www.terraform.io/intro/core-workflow</a></p>
 <pre tabindex="0"><code>export AWS_ACCESS_KEY_ID=&quot;&lt;NOTRE_AWS_ACCESS_KEY_ID&gt;&quot;
 </code></pre><pre tabindex="0"><code>export AWS_SECRET_ACCESS_KEY=&quot;&lt;YOUR_AWS_SECRET_ACCESS_KEY&gt;&quot;
 </code></pre>
@@ -196,7 +198,7 @@ Etape 1: Se connecter à notre console AWS et chercher IAM</p>
           <line x1="16" y1="17" x2="8" y2="17"></line>
           <polyline points="10 9 9 9 8 9"></polyline>
         </svg>
-        100 Words
+        103 Words
       </p>
 
       <p>
@@ -224,6 +226,13 @@ Etape 1: Se connecter à notre console AWS et chercher IAM</p>
         </div>
 
         <div class="pagination__buttons">
+          
+            <span class="button previous">
+              <a href="https://mxdjo.xyz/2022/04/15/installer-mysql-%C3%A0-partir-des-sources/">
+                <span class="button__icon">←</span>
+                <span class="button__text">Installer MySQL à partir des sources</span>
+              </a>
+            </span>
           
 
           

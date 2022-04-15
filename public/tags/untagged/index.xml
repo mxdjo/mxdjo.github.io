@@ -6,14 +6,15 @@
     <description>Recent content in untagged on echo mxdjo.xyz 😀</description>
     <generator>Hugo -- gohugo.io</generator>
     <copyright>&lt;a href=&#34;https://creativecommons.org/licenses/by-sa/2.0/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;CC BY-SA 2.0&lt;/a&gt;</copyright>
-    <lastBuildDate>Wed, 29 Dec 2021 13:50:24 +0000</lastBuildDate><atom:link href="https://mxdjo.xyz/tags/untagged/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Fri, 15 Apr 2022 15:57:49 +0000</lastBuildDate><atom:link href="https://mxdjo.xyz/tags/untagged/index.xml" rel="self" type="application/rss+xml" />
     <item>
-      <title>A</title>
-      <link>https://mxdjo.xyz/2021/12/29/a/</link>
-      <pubDate>Wed, 29 Dec 2021 13:50:24 +0000</pubDate>
+      <title>Installer MySQL à partir des sources</title>
+      <link>https://mxdjo.xyz/2022/04/15/installer-mysql-%C3%A0-partir-des-sources/</link>
+      <pubDate>Fri, 15 Apr 2022 15:57:49 +0000</pubDate>
       
-      <guid>https://mxdjo.xyz/2021/12/29/a/</guid>
-      <description>Ceci est un test</description>
+      <guid>https://mxdjo.xyz/2022/04/15/installer-mysql-%C3%A0-partir-des-sources/</guid>
+      <description>On peut être emmener à installer des versions de MySQL qui ne sont pas dans les dépots officiels de notre distribution. Nous installerons MySQL 5.1.73 à partir des sources sous Ubuntu 20.04 Ce tutoriel fonctionne normalement sous Ubuntu 18.04
+apt update apt install -y build-essential libncurses5-dev cd /tmp wget http://dev.mysql.com/get/Downloads/MySQL-5.1/mysql-5.1.73.tar.gz tar xzvf mysql-5.1.73.tar.gz cd mysql-5.1.73/ cd mysql-5.1.73/ ./configure \ &amp;#39;--prefix=/usr&amp;#39; &amp;#39;--exec-prefix=/usr&amp;#39; \ &amp;#39;--libexecdir=/usr/sbin&amp;#39; \ &amp;#39;--datadir=/usr/share&amp;#39; \ &amp;#39;--localstatedir=/var/lib/mysql&amp;#39; \ &amp;#39;--includedir=/usr/include&amp;#39; \ &amp;#39;--infodir=/usr/share/info&amp;#39; \ &amp;#39;--mandir=/usr/share/man&amp;#39; \ &amp;#39;--with-system-type=debian-linux-gnu&amp;#39; \ &amp;#39;--enable-shared&amp;#39; \ &amp;#39;--enable-static&amp;#39; \ &amp;#39;--enable-thread-safe-client&amp;#39; \ &amp;#39;--enable-assembler&amp;#39; \ &amp;#39;--enable-local-infile&amp;#39; \ &amp;#39;--with-fast-mutexes&amp;#39; \ &amp;#39;--with-big-tables&amp;#39; \ &amp;#39;--with-unix-socket-path=/var/run/mysqld/mysqld.</description>
     </item>
     
   </channel>

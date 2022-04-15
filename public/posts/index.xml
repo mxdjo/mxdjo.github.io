@@ -5,8 +5,72 @@
         <description>Recent content in Posts on echo mxdjo.xyz 😀</description>
         <generator>Hugo -- gohugo.io</generator>
         <copyright>&lt;a href=&#34;https://creativecommons.org/licenses/by-sa/2.0/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;CC BY-SA 2.0&lt;/a&gt;</copyright>
-        <lastBuildDate>Mon, 11 Apr 2022 10:07:37 +0000</lastBuildDate>
+        <lastBuildDate>Fri, 15 Apr 2022 15:57:49 +0000</lastBuildDate>
         <atom:link href="https://mxdjo.xyz/posts/index.xml" rel="self" type="application/rss+xml" />
+        
+        <item>
+            <title>Installer MySQL à partir des sources</title>
+            <link>https://mxdjo.xyz/2022/04/15/installer-mysql-%C3%A0-partir-des-sources/</link>
+            <pubDate>Fri, 15 Apr 2022 15:57:49 +0000</pubDate>
+            
+            <guid>https://mxdjo.xyz/2022/04/15/installer-mysql-%C3%A0-partir-des-sources/</guid>
+            <description>On peut être emmener à installer des versions de MySQL qui ne sont pas dans les dépots officiels de notre distribution. Nous installerons MySQL 5.1.73 à partir des sources sous Ubuntu 20.04 Ce tutoriel fonctionne normalement sous Ubuntu 18.04
+apt update apt install -y build-essential libncurses5-dev cd /tmp wget http://dev.mysql.com/get/Downloads/MySQL-5.1/mysql-5.1.73.tar.gz tar xzvf mysql-5.1.73.tar.gz cd mysql-5.1.73/ cd mysql-5.1.73/ ./configure \ &amp;#39;--prefix=/usr&amp;#39; &amp;#39;--exec-prefix=/usr&amp;#39; \ &amp;#39;--libexecdir=/usr/sbin&amp;#39; \ &amp;#39;--datadir=/usr/share&amp;#39; \ &amp;#39;--localstatedir=/var/lib/mysql&amp;#39; \ &amp;#39;--includedir=/usr/include&amp;#39; \ &amp;#39;--infodir=/usr/share/info&amp;#39; \ &amp;#39;--mandir=/usr/share/man&amp;#39; \ &amp;#39;--with-system-type=debian-linux-gnu&amp;#39; \ &amp;#39;--enable-shared&amp;#39; \ &amp;#39;--enable-static&amp;#39; \ &amp;#39;--enable-thread-safe-client&amp;#39; \ &amp;#39;--enable-assembler&amp;#39; \ &amp;#39;--enable-local-infile&amp;#39; \ &amp;#39;--with-fast-mutexes&amp;#39; \ &amp;#39;--with-big-tables&amp;#39; \ &amp;#39;--with-unix-socket-path=/var/run/mysqld/mysqld.</description>
+            <content type="html"><![CDATA[<p>On peut être emmener à installer des versions de MySQL qui ne sont pas dans les dépots officiels de notre distribution.
+Nous installerons MySQL 5.1.73 à partir des sources sous Ubuntu 20.04
+Ce tutoriel fonctionne normalement sous Ubuntu 18.04</p>
+<div class="highlight"><pre tabindex="0" style="color:#93a1a1;background-color:#002b36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">apt update
+</code></pre></div><div class="highlight"><pre tabindex="0" style="color:#93a1a1;background-color:#002b36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">apt install -y build-essential libncurses5-dev
+</code></pre></div><div class="highlight"><pre tabindex="0" style="color:#93a1a1;background-color:#002b36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="color:#b58900">cd</span> /tmp
+</code></pre></div><div class="highlight"><pre tabindex="0" style="color:#93a1a1;background-color:#002b36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">wget http://dev.mysql.com/get/Downloads/MySQL-5.1/mysql-5.1.73.tar.gz
+</code></pre></div><div class="highlight"><pre tabindex="0" style="color:#93a1a1;background-color:#002b36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">tar xzvf mysql-5.1.73.tar.gz
+</code></pre></div><div class="highlight"><pre tabindex="0" style="color:#93a1a1;background-color:#002b36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="color:#b58900">cd</span> mysql-5.1.73/
+</code></pre></div><div class="highlight"><pre tabindex="0" style="color:#93a1a1;background-color:#002b36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="color:#b58900">cd</span> mysql-5.1.73/
+</code></pre></div><div class="highlight"><pre tabindex="0" style="color:#93a1a1;background-color:#002b36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">./configure <span style="color:#cb4b16">\
+</span><span style="color:#cb4b16"></span><span style="color:#2aa198">&#39;--prefix=/usr&#39;</span> 
+<span style="color:#2aa198">&#39;--exec-prefix=/usr&#39;</span> <span style="color:#cb4b16">\
+</span><span style="color:#cb4b16"></span><span style="color:#2aa198">&#39;--libexecdir=/usr/sbin&#39;</span> <span style="color:#cb4b16">\
+</span><span style="color:#cb4b16"></span><span style="color:#2aa198">&#39;--datadir=/usr/share&#39;</span> <span style="color:#cb4b16">\
+</span><span style="color:#cb4b16"></span><span style="color:#2aa198">&#39;--localstatedir=/var/lib/mysql&#39;</span> <span style="color:#cb4b16">\
+</span><span style="color:#cb4b16"></span><span style="color:#2aa198">&#39;--includedir=/usr/include&#39;</span> <span style="color:#cb4b16">\
+</span><span style="color:#cb4b16"></span><span style="color:#2aa198">&#39;--infodir=/usr/share/info&#39;</span> <span style="color:#cb4b16">\
+</span><span style="color:#cb4b16"></span><span style="color:#2aa198">&#39;--mandir=/usr/share/man&#39;</span> <span style="color:#cb4b16">\
+</span><span style="color:#cb4b16"></span><span style="color:#2aa198">&#39;--with-system-type=debian-linux-gnu&#39;</span> <span style="color:#cb4b16">\
+</span><span style="color:#cb4b16"></span><span style="color:#2aa198">&#39;--enable-shared&#39;</span> <span style="color:#cb4b16">\
+</span><span style="color:#cb4b16"></span><span style="color:#2aa198">&#39;--enable-static&#39;</span> <span style="color:#cb4b16">\
+</span><span style="color:#cb4b16"></span><span style="color:#2aa198">&#39;--enable-thread-safe-client&#39;</span> <span style="color:#cb4b16">\
+</span><span style="color:#cb4b16"></span><span style="color:#2aa198">&#39;--enable-assembler&#39;</span> <span style="color:#cb4b16">\
+</span><span style="color:#cb4b16"></span><span style="color:#2aa198">&#39;--enable-local-infile&#39;</span> <span style="color:#cb4b16">\
+</span><span style="color:#cb4b16"></span><span style="color:#2aa198">&#39;--with-fast-mutexes&#39;</span> <span style="color:#cb4b16">\
+</span><span style="color:#cb4b16"></span><span style="color:#2aa198">&#39;--with-big-tables&#39;</span> <span style="color:#cb4b16">\
+</span><span style="color:#cb4b16"></span><span style="color:#2aa198">&#39;--with-unix-socket-path=/var/run/mysqld/mysqld.sock&#39;</span> <span style="color:#cb4b16">\
+</span><span style="color:#cb4b16"></span><span style="color:#2aa198">&#39;--with-mysqld-user=mysql&#39;</span> <span style="color:#cb4b16">\
+</span><span style="color:#cb4b16"></span><span style="color:#2aa198">&#39;--with-libwrap&#39;</span> <span style="color:#cb4b16">\
+</span><span style="color:#cb4b16"></span><span style="color:#2aa198">&#39;--with-readline&#39;</span> <span style="color:#cb4b16">\
+</span><span style="color:#cb4b16"></span><span style="color:#2aa198">&#39;--with-ssl&#39;</span> <span style="color:#cb4b16">\
+</span><span style="color:#cb4b16"></span><span style="color:#2aa198">&#39;--without-docs&#39;</span> <span style="color:#cb4b16">\
+</span><span style="color:#cb4b16"></span><span style="color:#2aa198">&#39;--with-extra-charsets=all&#39;</span> <span style="color:#cb4b16">\
+</span><span style="color:#cb4b16"></span><span style="color:#2aa198">&#39;--with-plugins=max&#39;</span> <span style="color:#cb4b16">\
+</span><span style="color:#cb4b16"></span><span style="color:#2aa198">&#39;--with-embedded-server&#39;</span> <span style="color:#cb4b16">\
+</span><span style="color:#cb4b16"></span><span style="color:#2aa198">&#39;--with-embedded-privilege-control&#39;</span> <span style="color:#cb4b16">\
+</span><span style="color:#cb4b16"></span><span style="color:#268bd2">CXXFLAGS</span><span style="color:#719e07">=</span><span style="color:#2aa198">&#34;-Wno-narrowing -fpermissive&#34;</span>
+</code></pre></div><div class="highlight"><pre tabindex="0" style="color:#93a1a1;background-color:#002b36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">make
+</code></pre></div><div class="highlight"><pre tabindex="0" style="color:#93a1a1;background-color:#002b36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">make install
+</code></pre></div><div class="highlight"><pre tabindex="0" style="color:#93a1a1;background-color:#002b36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">mkdir -p /etc/mysql
+</code></pre></div><div class="highlight"><pre tabindex="0" style="color:#93a1a1;background-color:#002b36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">mkdir -p /var/lib/mysql
+</code></pre></div><div class="highlight"><pre tabindex="0" style="color:#93a1a1;background-color:#002b36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">mkdir -p /etc/mysql/conf.d
+</code></pre></div><div class="highlight"><pre tabindex="0" style="color:#93a1a1;background-color:#002b36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="color:#b58900">echo</span> -e <span style="color:#2aa198">&#39;[mysqld_safe]\nsyslog&#39;</span> &gt; /etc/mysql/conf.d/mysqld_safe_syslog.cnf
+</code></pre></div><div class="highlight"><pre tabindex="0" style="color:#93a1a1;background-color:#002b36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">cp /usr/share/mysql/my-medium.cnf /etc/mysql/my.cnf
+</code></pre></div><div class="highlight"><pre tabindex="0" style="color:#93a1a1;background-color:#002b36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">sed -i <span style="color:#2aa198">&#39;s#.*datadir.*#datadir = /var/lib/mysql#g&#39;</span> /etc/mysql/my.cnf
+</code></pre></div><div class="highlight"><pre tabindex="0" style="color:#93a1a1;background-color:#002b36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">chown mysql:mysql -R /var/lib/mysql
+</code></pre></div><div class="highlight"><pre tabindex="0" style="color:#93a1a1;background-color:#002b36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">mysql_install_db --user<span style="color:#719e07">=</span>mysql
+</code></pre></div><div class="highlight"><pre tabindex="0" style="color:#93a1a1;background-color:#002b36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">mysqld_safe -user<span style="color:#719e07">=</span>mysql &amp;
+</code></pre></div><div class="highlight"><pre tabindex="0" style="color:#93a1a1;background-color:#002b36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">/usr/bin/mysql_secure_installation
+</code></pre></div><div class="highlight"><pre tabindex="0" style="color:#93a1a1;background-color:#002b36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">cp /usr/share/mysql/mysql.server /etc/init.d/mysql
+</code></pre></div><div class="highlight"><pre tabindex="0" style="color:#93a1a1;background-color:#002b36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">chmod +x /etc/init.d/mysql
+</code></pre></div><div class="highlight"><pre tabindex="0" style="color:#93a1a1;background-color:#002b36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">update-rc.d mysql defaults
+</code></pre></div>]]></content>
+        </item>
         
         <item>
             <title>Créer une instance EC2 avec Terraform sur AWS</title>
@@ -31,7 +95,9 @@ Génerer les Acces AWS IAM Nous avons installé Terraform. Cependant comment ter
 <p>Ces deux accès peuvent être définis sur notre machine en tant que variable d&rsquo;environnement</p>
 <p>Comment obtenir ces 2 éléments?
 Etape 1: Se connecter à notre console AWS et chercher IAM</p>
-<p><img src="IAM.png" alt="step1"></p>
+<p><a href="https://aws.amazon.com/fr/premiumsupport/knowledge-center/create-access-key/">https://aws.amazon.com/fr/premiumsupport/knowledge-center/create-access-key/</a></p>
+<p><a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/best-practices.html#grant-least-privilege">https://docs.aws.amazon.com/IAM/latest/UserGuide/best-practices.html#grant-least-privilege</a></p>
+<p><a href="https://www.terraform.io/intro/core-workflow">https://www.terraform.io/intro/core-workflow</a></p>
 <pre tabindex="0"><code>export AWS_ACCESS_KEY_ID=&quot;&lt;NOTRE_AWS_ACCESS_KEY_ID&gt;&quot;
 </code></pre><pre tabindex="0"><code>export AWS_SECRET_ACCESS_KEY=&quot;&lt;YOUR_AWS_SECRET_ACCESS_KEY&gt;&quot;
 </code></pre>]]></content>

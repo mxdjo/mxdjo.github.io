@@ -1,0 +1,309 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="ie=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="author" content="">
+<meta name="description" content="On peut être emmener à installer des versions de MySQL qui ne sont pas dans les dépots officiels de notre distribution. Nous installerons MySQL 5.1.73 à partir des sources sous Ubuntu 20.04 Ce tutoriel fonctionne normalement sous Ubuntu 18.04
+apt update apt install -y build-essential libncurses5-dev cd /tmp wget http://dev.mysql.com/get/Downloads/MySQL-5.1/mysql-5.1.73.tar.gz tar xzvf mysql-5.1.73.tar.gz cd mysql-5.1.73/ cd mysql-5.1.73/ ./configure \ &amp;#39;--prefix=/usr&amp;#39; &amp;#39;--exec-prefix=/usr&amp;#39; \ &amp;#39;--libexecdir=/usr/sbin&amp;#39; \ &amp;#39;--datadir=/usr/share&amp;#39; \ &amp;#39;--localstatedir=/var/lib/mysql&amp;#39; \ &amp;#39;--includedir=/usr/include&amp;#39; \ &amp;#39;--infodir=/usr/share/info&amp;#39; \ &amp;#39;--mandir=/usr/share/man&amp;#39; \ &amp;#39;--with-system-type=debian-linux-gnu&amp;#39; \ &amp;#39;--enable-shared&amp;#39; \ &amp;#39;--enable-static&amp;#39; \ &amp;#39;--enable-thread-safe-client&amp;#39; \ &amp;#39;--enable-assembler&amp;#39; \ &amp;#39;--enable-local-infile&amp;#39; \ &amp;#39;--with-fast-mutexes&amp;#39; \ &amp;#39;--with-big-tables&amp;#39; \ &amp;#39;--with-unix-socket-path=/var/run/mysqld/mysqld." />
+<meta name="keywords" content=", untagged" />
+<meta name="robots" content="noodp" />
+<meta name="theme-color" content="#252627" />
+<link rel="canonical" href="https://mxdjo.xyz/2022/04/15/installer-mysql-%C3%A0-partir-des-sources/" />
+
+
+    <title>
+        
+            Installer MySQL à partir des sources :: echo mxdjo.xyz 😀  — Bloc-notes d&#39;un Devops
+        
+    </title>
+
+
+
+<link href="https://cdnjs.cloudflare.com/ajax/libs/flag-icon-css/3.5.0/css/flag-icon.min.css" rel="stylesheet"
+    type="text/css">
+
+
+
+<link rel="stylesheet" href="https://mxdjo.xyz/main.9655fd5f70c904b04634d3d3e59f77a994f4471ec393982efe724d829b71f6e7.css">
+
+
+
+
+    <link rel="apple-touch-icon" sizes="180x180" href="https://mxdjo.xyz/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="https://mxdjo.xyz/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="https://mxdjo.xyz/favicon-16x16.png">
+    <link rel="manifest" href="https://mxdjo.xyz/site.webmanifest">
+    <link rel="mask-icon" href="https://mxdjo.xyz/safari-pinned-tab.svg" color="#252627">
+    <link rel="shortcut icon" href="https://mxdjo.xyz/favicon.ico">
+    <meta name="msapplication-TileColor" content="#252627">
+    <meta name="theme-color" content="#252627">
+
+
+
+<meta itemprop="name" content="Installer MySQL à partir des sources">
+<meta itemprop="description" content="On peut être emmener à installer des versions de MySQL qui ne sont pas dans les dépots officiels de notre distribution. Nous installerons MySQL 5.1.73 à partir des sources sous Ubuntu 20.04 Ce tutoriel fonctionne normalement sous Ubuntu 18.04
+apt update apt install -y build-essential libncurses5-dev cd /tmp wget http://dev.mysql.com/get/Downloads/MySQL-5.1/mysql-5.1.73.tar.gz tar xzvf mysql-5.1.73.tar.gz cd mysql-5.1.73/ cd mysql-5.1.73/ ./configure \ &#39;--prefix=/usr&#39; &#39;--exec-prefix=/usr&#39; \ &#39;--libexecdir=/usr/sbin&#39; \ &#39;--datadir=/usr/share&#39; \ &#39;--localstatedir=/var/lib/mysql&#39; \ &#39;--includedir=/usr/include&#39; \ &#39;--infodir=/usr/share/info&#39; \ &#39;--mandir=/usr/share/man&#39; \ &#39;--with-system-type=debian-linux-gnu&#39; \ &#39;--enable-shared&#39; \ &#39;--enable-static&#39; \ &#39;--enable-thread-safe-client&#39; \ &#39;--enable-assembler&#39; \ &#39;--enable-local-infile&#39; \ &#39;--with-fast-mutexes&#39; \ &#39;--with-big-tables&#39; \ &#39;--with-unix-socket-path=/var/run/mysqld/mysqld."><meta itemprop="datePublished" content="2022-04-15T15:57:49+00:00" />
+<meta itemprop="dateModified" content="2022-04-15T15:57:49+00:00" />
+<meta itemprop="wordCount" content="157"><meta itemprop="image" content="https://mxdjo.xyz"/>
+<meta itemprop="keywords" content="untagged," />
+<meta name="twitter:card" content="summary_large_image"/>
+<meta name="twitter:image" content="https://mxdjo.xyz"/>
+
+<meta name="twitter:title" content="Installer MySQL à partir des sources"/>
+<meta name="twitter:description" content="On peut être emmener à installer des versions de MySQL qui ne sont pas dans les dépots officiels de notre distribution. Nous installerons MySQL 5.1.73 à partir des sources sous Ubuntu 20.04 Ce tutoriel fonctionne normalement sous Ubuntu 18.04
+apt update apt install -y build-essential libncurses5-dev cd /tmp wget http://dev.mysql.com/get/Downloads/MySQL-5.1/mysql-5.1.73.tar.gz tar xzvf mysql-5.1.73.tar.gz cd mysql-5.1.73/ cd mysql-5.1.73/ ./configure \ &#39;--prefix=/usr&#39; &#39;--exec-prefix=/usr&#39; \ &#39;--libexecdir=/usr/sbin&#39; \ &#39;--datadir=/usr/share&#39; \ &#39;--localstatedir=/var/lib/mysql&#39; \ &#39;--includedir=/usr/include&#39; \ &#39;--infodir=/usr/share/info&#39; \ &#39;--mandir=/usr/share/man&#39; \ &#39;--with-system-type=debian-linux-gnu&#39; \ &#39;--enable-shared&#39; \ &#39;--enable-static&#39; \ &#39;--enable-thread-safe-client&#39; \ &#39;--enable-assembler&#39; \ &#39;--enable-local-infile&#39; \ &#39;--with-fast-mutexes&#39; \ &#39;--with-big-tables&#39; \ &#39;--with-unix-socket-path=/var/run/mysqld/mysqld."/>
+
+
+
+
+
+
+
+
+    <meta property="article:published_time" content="2022-04-15 15:57:49 &#43;0000 UTC" />
+
+
+
+
+
+
+
+
+    </head>
+
+    
+        <body class="">
+    
+    
+        <div class="container">
+            <header class="header">
+    <span class="header__inner">
+        <a href="https://mxdjo.xyz/" style="text-decoration: none;">
+    <div class="logo">
+        
+            <span class="logo__mark">></span>
+            <span class="logo__text">$ echo mxdjo.xyz</span>
+            <span class="logo__cursor" style=
+                  "visibility:hidden;
+                   
+                   ">
+            </span>
+        
+    </div>
+</a>
+
+
+        <span class="header__right">
+            
+                <nav class="menu">
+    <ul class="menu__inner"><li><a href="https://mxdjo.xyz/posts/">posts</a></li>
+    </ul>
+</nav>
+
+                <span class="menu-trigger">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                        <path d="M0 0h24v24H0z" fill="none"/>
+                        <path d="M3 18h18v-2H3v2zm0-5h18v-2H3v2zm0-7v2h18V6H3z"/>
+                    </svg>
+                </span>
+            
+
+            <span class="theme-toggle unselectable"><svg class="theme-toggler" width="24" height="24" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <path d="M22 41C32.4934 41 41 32.4934 41 22C41 11.5066 32.4934 3 22
+  3C11.5066 3 3 11.5066 3 22C3 32.4934 11.5066 41 22 41ZM7 22C7
+  13.7157 13.7157 7 22 7V37C13.7157 37 7 30.2843 7 22Z"/>
+</svg>
+</span>
+        </span>
+    </span>
+</header>
+
+
+            <div class="content">
+                
+  <main class="post">
+
+    <div class="post-info">
+      <p>
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-clock">
+          <circle cx="12" cy="12" r="10"></circle>
+          <polyline points="12 6 12 12 16 14"></polyline>
+        </svg>
+        One minute
+
+        
+      </p>
+    </div>
+
+    <article>
+      <h1 class="post-title">
+        <a href="https://mxdjo.xyz/2022/04/15/installer-mysql-%C3%A0-partir-des-sources/">Installer MySQL à partir des sources</a>
+      </h1>
+
+      
+
+      
+
+      <div class="post-content">
+        <p>On peut être emmener à installer des versions de MySQL qui ne sont pas dans les dépots officiels de notre distribution.
+Nous installerons MySQL 5.1.73 à partir des sources sous Ubuntu 20.04
+Ce tutoriel fonctionne normalement sous Ubuntu 18.04</p>
+<div class="highlight"><pre tabindex="0" style="color:#93a1a1;background-color:#002b36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">apt update
+</code></pre></div><div class="highlight"><pre tabindex="0" style="color:#93a1a1;background-color:#002b36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">apt install -y build-essential libncurses5-dev
+</code></pre></div><div class="highlight"><pre tabindex="0" style="color:#93a1a1;background-color:#002b36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="color:#b58900">cd</span> /tmp
+</code></pre></div><div class="highlight"><pre tabindex="0" style="color:#93a1a1;background-color:#002b36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">wget http://dev.mysql.com/get/Downloads/MySQL-5.1/mysql-5.1.73.tar.gz
+</code></pre></div><div class="highlight"><pre tabindex="0" style="color:#93a1a1;background-color:#002b36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">tar xzvf mysql-5.1.73.tar.gz
+</code></pre></div><div class="highlight"><pre tabindex="0" style="color:#93a1a1;background-color:#002b36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="color:#b58900">cd</span> mysql-5.1.73/
+</code></pre></div><div class="highlight"><pre tabindex="0" style="color:#93a1a1;background-color:#002b36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="color:#b58900">cd</span> mysql-5.1.73/
+</code></pre></div><div class="highlight"><pre tabindex="0" style="color:#93a1a1;background-color:#002b36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">./configure <span style="color:#cb4b16">\
+</span><span style="color:#cb4b16"></span><span style="color:#2aa198">&#39;--prefix=/usr&#39;</span> 
+<span style="color:#2aa198">&#39;--exec-prefix=/usr&#39;</span> <span style="color:#cb4b16">\
+</span><span style="color:#cb4b16"></span><span style="color:#2aa198">&#39;--libexecdir=/usr/sbin&#39;</span> <span style="color:#cb4b16">\
+</span><span style="color:#cb4b16"></span><span style="color:#2aa198">&#39;--datadir=/usr/share&#39;</span> <span style="color:#cb4b16">\
+</span><span style="color:#cb4b16"></span><span style="color:#2aa198">&#39;--localstatedir=/var/lib/mysql&#39;</span> <span style="color:#cb4b16">\
+</span><span style="color:#cb4b16"></span><span style="color:#2aa198">&#39;--includedir=/usr/include&#39;</span> <span style="color:#cb4b16">\
+</span><span style="color:#cb4b16"></span><span style="color:#2aa198">&#39;--infodir=/usr/share/info&#39;</span> <span style="color:#cb4b16">\
+</span><span style="color:#cb4b16"></span><span style="color:#2aa198">&#39;--mandir=/usr/share/man&#39;</span> <span style="color:#cb4b16">\
+</span><span style="color:#cb4b16"></span><span style="color:#2aa198">&#39;--with-system-type=debian-linux-gnu&#39;</span> <span style="color:#cb4b16">\
+</span><span style="color:#cb4b16"></span><span style="color:#2aa198">&#39;--enable-shared&#39;</span> <span style="color:#cb4b16">\
+</span><span style="color:#cb4b16"></span><span style="color:#2aa198">&#39;--enable-static&#39;</span> <span style="color:#cb4b16">\
+</span><span style="color:#cb4b16"></span><span style="color:#2aa198">&#39;--enable-thread-safe-client&#39;</span> <span style="color:#cb4b16">\
+</span><span style="color:#cb4b16"></span><span style="color:#2aa198">&#39;--enable-assembler&#39;</span> <span style="color:#cb4b16">\
+</span><span style="color:#cb4b16"></span><span style="color:#2aa198">&#39;--enable-local-infile&#39;</span> <span style="color:#cb4b16">\
+</span><span style="color:#cb4b16"></span><span style="color:#2aa198">&#39;--with-fast-mutexes&#39;</span> <span style="color:#cb4b16">\
+</span><span style="color:#cb4b16"></span><span style="color:#2aa198">&#39;--with-big-tables&#39;</span> <span style="color:#cb4b16">\
+</span><span style="color:#cb4b16"></span><span style="color:#2aa198">&#39;--with-unix-socket-path=/var/run/mysqld/mysqld.sock&#39;</span> <span style="color:#cb4b16">\
+</span><span style="color:#cb4b16"></span><span style="color:#2aa198">&#39;--with-mysqld-user=mysql&#39;</span> <span style="color:#cb4b16">\
+</span><span style="color:#cb4b16"></span><span style="color:#2aa198">&#39;--with-libwrap&#39;</span> <span style="color:#cb4b16">\
+</span><span style="color:#cb4b16"></span><span style="color:#2aa198">&#39;--with-readline&#39;</span> <span style="color:#cb4b16">\
+</span><span style="color:#cb4b16"></span><span style="color:#2aa198">&#39;--with-ssl&#39;</span> <span style="color:#cb4b16">\
+</span><span style="color:#cb4b16"></span><span style="color:#2aa198">&#39;--without-docs&#39;</span> <span style="color:#cb4b16">\
+</span><span style="color:#cb4b16"></span><span style="color:#2aa198">&#39;--with-extra-charsets=all&#39;</span> <span style="color:#cb4b16">\
+</span><span style="color:#cb4b16"></span><span style="color:#2aa198">&#39;--with-plugins=max&#39;</span> <span style="color:#cb4b16">\
+</span><span style="color:#cb4b16"></span><span style="color:#2aa198">&#39;--with-embedded-server&#39;</span> <span style="color:#cb4b16">\
+</span><span style="color:#cb4b16"></span><span style="color:#2aa198">&#39;--with-embedded-privilege-control&#39;</span> <span style="color:#cb4b16">\
+</span><span style="color:#cb4b16"></span><span style="color:#268bd2">CXXFLAGS</span><span style="color:#719e07">=</span><span style="color:#2aa198">&#34;-Wno-narrowing -fpermissive&#34;</span>
+</code></pre></div><div class="highlight"><pre tabindex="0" style="color:#93a1a1;background-color:#002b36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">make
+</code></pre></div><div class="highlight"><pre tabindex="0" style="color:#93a1a1;background-color:#002b36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">make install
+</code></pre></div><div class="highlight"><pre tabindex="0" style="color:#93a1a1;background-color:#002b36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">mkdir -p /etc/mysql
+</code></pre></div><div class="highlight"><pre tabindex="0" style="color:#93a1a1;background-color:#002b36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">mkdir -p /var/lib/mysql
+</code></pre></div><div class="highlight"><pre tabindex="0" style="color:#93a1a1;background-color:#002b36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">mkdir -p /etc/mysql/conf.d
+</code></pre></div><div class="highlight"><pre tabindex="0" style="color:#93a1a1;background-color:#002b36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="color:#b58900">echo</span> -e <span style="color:#2aa198">&#39;[mysqld_safe]\nsyslog&#39;</span> &gt; /etc/mysql/conf.d/mysqld_safe_syslog.cnf
+</code></pre></div><div class="highlight"><pre tabindex="0" style="color:#93a1a1;background-color:#002b36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">cp /usr/share/mysql/my-medium.cnf /etc/mysql/my.cnf
+</code></pre></div><div class="highlight"><pre tabindex="0" style="color:#93a1a1;background-color:#002b36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">sed -i <span style="color:#2aa198">&#39;s#.*datadir.*#datadir = /var/lib/mysql#g&#39;</span> /etc/mysql/my.cnf
+</code></pre></div><div class="highlight"><pre tabindex="0" style="color:#93a1a1;background-color:#002b36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">chown mysql:mysql -R /var/lib/mysql
+</code></pre></div><div class="highlight"><pre tabindex="0" style="color:#93a1a1;background-color:#002b36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">mysql_install_db --user<span style="color:#719e07">=</span>mysql
+</code></pre></div><div class="highlight"><pre tabindex="0" style="color:#93a1a1;background-color:#002b36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">mysqld_safe -user<span style="color:#719e07">=</span>mysql &amp;
+</code></pre></div><div class="highlight"><pre tabindex="0" style="color:#93a1a1;background-color:#002b36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">/usr/bin/mysql_secure_installation
+</code></pre></div><div class="highlight"><pre tabindex="0" style="color:#93a1a1;background-color:#002b36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">cp /usr/share/mysql/mysql.server /etc/init.d/mysql
+</code></pre></div><div class="highlight"><pre tabindex="0" style="color:#93a1a1;background-color:#002b36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">chmod +x /etc/init.d/mysql
+</code></pre></div><div class="highlight"><pre tabindex="0" style="color:#93a1a1;background-color:#002b36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">update-rc.d mysql defaults
+</code></pre></div>
+      </div>
+    </article>
+
+    <hr />
+
+    <div class="post-info">
+      
+    <p>
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-tag meta-icon"><path d="M20.59 13.41l-7.17 7.17a2 2 0 0 1-2.83 0L2 12V2h10l8.59 8.59a2 2 0 0 1 0 2.82z"></path><line x1="7" y1="7" x2="7" y2="7"></line></svg>
+
+        <span class="tag"><a href="https://mxdjo.xyz/tags/untagged/">untagged</a></span>
+        
+    </p>
+
+      
+
+      <p>
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-file-text">
+          <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
+          <polyline points="14 2 14 8 20 8"></polyline>
+          <line x1="16" y1="13" x2="8" y2="13"></line>
+          <line x1="16" y1="17" x2="8" y2="17"></line>
+          <polyline points="10 9 9 9 8 9"></polyline>
+        </svg>
+        157 Words
+      </p>
+
+      <p>
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-calendar">
+          <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect>
+          <line x1="16" y1="2" x2="16" y2="6"></line>
+          <line x1="8" y1="2" x2="8" y2="6"></line>
+          <line x1="3" y1="10" x2="21" y2="10"></line>
+        </svg>
+        
+          2022-04-15 15:57 &#43;0000
+        
+
+         
+          
+        
+      </p>
+    </div>
+
+    
+      <div class="pagination">
+        <div class="pagination__title">
+          <span class="pagination__title-h"></span>
+          <hr />
+        </div>
+
+        <div class="pagination__buttons">
+          
+
+          
+            <span class="button next">
+              <a href="https://mxdjo.xyz/2022/04/11/cr%C3%A9er-une-instance-ec2-avec-terraform-sur-aws/">
+                <span class="button__text">Créer une instance EC2 avec Terraform sur AWS</span>
+                <span class="button__icon">→</span>
+              </a>
+            </span>
+          
+        </div>
+      </div>
+    
+
+
+    
+
+    
+
+  </main>
+
+            </div>
+
+            
+                <footer class="footer">
+    <div class="footer__inner">
+        <div class="footer__content">
+            <span>&copy; 2022</span>
+            
+            <span><a href="https://creativecommons.org/licenses/by-sa/2.0/" target="_blank" rel="noopener">CC BY-SA 2.0</a></span><span><a href="https://mxdjo.xyz/posts/index.xml" target="_blank" title="rss"><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-rss"><path d="M4 11a9 9 0 0 1 9 9"></path><path d="M4 4a16 16 0 0 1 16 16"></path><circle cx="5" cy="19" r="1"></circle></svg></a></span>
+        </div>
+    </div>
+    <div class="footer__inner">
+        <div class="footer__content">
+            <span>Powered by <a href="http://gohugo.io">Hugo</a></span>
+            <span>Made with &#10084; by <a href="https://github.com/rhazdon">Djordje Atlialp</a></span>
+          </div>
+    </div>
+</footer>
+
+            
+        </div>
+
+        
+
+
+
+
+<script type="text/javascript" src="https://mxdjo.xyz/bundle.min.e9f93b80e78a22e6f04cbb5f73e0f9c4ba60ff73a2a0ef85965c688f93dd1f2722a282e30e485603e4c65b1b346720e35f213435ec5556e196a97a68d097c80f.js" integrity="sha512-6fk7gOeKIubwTLtfc&#43;D5xLpg/3OioO&#43;Fllxoj5PdHyciooLjDkhWA&#43;TGWxs0ZyDjXyE0NexVVuGWqXpo0JfIDw=="></script>
+
+
+
+    </body>
+</html>
